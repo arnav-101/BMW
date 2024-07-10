@@ -6,3 +6,40 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+:root {
+    --background-gradient: linear-gradient(93.5deg, #ccc, #ddd, #ccc);
+    --background: #ccc;
+    --background-900: #aaa;
+    --text-color: #333;
+}
+
+body {
+    background: var(--background-gradient);
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+.nav-li {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--background-900);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-li:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
